@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -17,13 +18,15 @@ function Header() {
         <NavbarBrand href="/">bight</NavbarBrand>
         <NavbarToggler onClick={() => setOpen(!open)} />
         <Collapse isOpen={open} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink tag={Link} to="/inventory">
+                Inventory
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
+              <NavLink tag={Link} to="/shipments">
+                Shipments
               </NavLink>
             </NavItem>
           </Nav>

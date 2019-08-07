@@ -1,7 +1,9 @@
 import React from "react";
 import Header from "./Header";
 import Home from "./Home";
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import Inventory from "./Inventory";
+import Shipments from "./Shipments";
 
 function App() {
   return (
@@ -10,10 +12,9 @@ function App() {
       <Router>
         <Header />
         <div className="photo-bg">
-          <Home />
-          {/* <Route exact path="/" component={Home} />
-        <Route path="/inventory" component={Inventory} />
-        <Route path="/product" component={Product} /> */}
+          <Route exact path="/" component={Home} />
+          <Route path="/inventory" component={Inventory} />
+          <Route path="/shipments" component={Shipments} />
         </div>
       </Router>
       {/* </Store> */}
