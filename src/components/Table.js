@@ -1,7 +1,7 @@
 import React from "react";
 // import { inventory } from "./";
 
-function Table(props) {
+function Table({ data }) {
   function renderHead() {
     return (
       <thead>
@@ -14,12 +14,26 @@ function Table(props) {
     );
   }
   function renderBody() {
-    return <body />;
+    return (
+      <tbody>
+        {data.map(function(item, itemIndex) {
+          return (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.product} </td>
+              <td>{item.quantity} </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    );
   }
   return (
     <div>
-      <table className="table">{renderHead()}</table>
-      <pre>{JSON.stringify(props.data, null, 2)}</pre>
+      <table className="table">
+        {renderHead()} {renderBody()}
+      </table>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
