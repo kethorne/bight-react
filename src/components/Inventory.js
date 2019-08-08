@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import Table from "./Table";
 
 function Inventory() {
-  const [data, setData] = useState([1, 2, 3, 4]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/inventory")
+      .then(response => response.json())
+      .then(json => setData(json));
+  }, []);
 
   return (
     <div className="inventory-page">
       <h4>Inventory</h4>
-      <Table />
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <Table data={data} />
     </div>
   );
 }

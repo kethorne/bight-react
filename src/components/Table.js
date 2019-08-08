@@ -1,7 +1,7 @@
 import React from "react";
 // import { inventory } from "./";
 
-function Table() {
+function Table(props) {
   function renderHead() {
     return (
       <thead>
@@ -16,6 +16,11 @@ function Table() {
   function renderBody() {
     return <body />;
   }
-  return <table className="table">{renderHead()}</table>;
+  return (
+    <div>
+      <table className="table">{renderHead()}</table>
+      <pre>{JSON.stringify(props.data, null, 2)}</pre>
+    </div>
+  );
 }
 export default Table;
