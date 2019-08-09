@@ -1,5 +1,5 @@
 import React from "react";
-// import { inventory } from "./";
+import { Link } from "react-router-dom";
 
 function Table({ data }) {
   function renderHead() {
@@ -20,7 +20,9 @@ function Table({ data }) {
           return (
             <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{item.product} </td>
+              <td>
+                <Link to={`/products/${item.id}`}>{item.product}</Link>
+              </td>
               <td>{item.quantity} </td>
             </tr>
           );
@@ -31,7 +33,8 @@ function Table({ data }) {
   return (
     <div>
       <table className="table">
-        {renderHead()} {renderBody()}
+        {renderHead()}
+        {renderBody()}
       </table>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
