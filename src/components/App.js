@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Home from "./Home";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
@@ -7,11 +7,12 @@ import Shipments from "./Shipments";
 import Products from "./Products";
 
 function App() {
+  const [appState, setAppState] = useState({ brand: "bight" });
   return (
     <div className="App">
       {/* <Store> */}
       <Router>
-        <Header />
+        <Header brand={appState.brand} setAppState={setAppState} />
         <div className="photo-bg">
           <Route exact path="/" component={Home} />
           <Route path="/inventory" component={Inventory} />
